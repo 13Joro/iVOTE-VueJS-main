@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="constraint-layout">
     <img
       id="imageViewBackground"
       class="background-image"
@@ -7,8 +7,7 @@
       alt="Background"
     />
 
-    <div id="overlay" class="overlay"></div>
-    <div class="login-box">
+    <div class="register-container">
       <h2>Register to iVote!</h2>
       <form @submit.prevent="submitForm">
         <div class="input-group">
@@ -133,46 +132,53 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: agrandir;
+}
 
-.login-container {
+@font-face {
+  font-family: agrandir;
+  src: url('@/assets/agrandir.otf');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent any scrollbars */
+}
+
+.constraint-layout {
+  position: fixed; /* Fix the layout to the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; 
-  position: relative;
+  justify-content: center; /* Center the registration form horizontally */
+  align-items: center; /* Center the registration form vertically */
+  background-color: #000;
 }
 
 .background-image {
-  position: absolute;
+  position: fixed; /* Fixed background */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensure the image covers the full screen */
   z-index: -1;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.register-container {
+  z-index: 2; /* Ensure the container stays above the background */
   width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.5;
-  z-index: 2;
-}
-
-.login-box {
-  font-family: Arial, Helvetica, sans-serif;
-  z-index: 3;
-  width: 100%;
-  max-width: 400px;
-  padding: 5px;
-  height: 70%;
-  background: rgba(0, 0, 0, 0.363);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px; /* Maximum width of the registration container */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Slightly transparent black background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,7 +201,6 @@ input[type="email"],
 input[type="password"],
 input[type="date"] {
   width: 100%;
-  max-width: 400px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -230,7 +235,6 @@ label {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  
 }
 
 .extra-links a {
@@ -242,5 +246,4 @@ label {
 .extra-links a:hover {
   text-decoration: underline;
 }
-
 </style>
