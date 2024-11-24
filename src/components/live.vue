@@ -48,7 +48,7 @@
 <script>
 import { io } from 'socket.io-client';
 import { db } from '@/firebase'; // Adjust the path as necessary
-import { collection, onSnapshot, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore'; // For Firestore
+import { collection, onSnapshot, addDoc, doc, getDoc } from 'firebase/firestore'; // For Firestore
 import { getAuth, signOut } from 'firebase/auth'; // Import Firebase Auth
 
 export default {
@@ -60,12 +60,12 @@ export default {
       newMessage: '',
       socket1: null,
       socket2: null,
-      username: 'User', // Default username
+      username: '', // Initialize username as empty
     };
   },
   async mounted() {
     const auth = getAuth();
-    const userId = auth.currentUser ? auth.currentUser.uid : null; // Get current user ID
+    const userId = auth.currentUser  ? auth.currentUser .uid : null; // Get current user ID
 
     // Fetch the user's first name from Firestore
     await this.fetchUserName(userId);
@@ -114,14 +114,14 @@ export default {
 
         if (userSnapshot.exists()) {
           const userData = userSnapshot.data();
-          this.username = userData.firstName || 'User'; // Set username to firstName or default to 'User'
+          this.username = userData.firstName || 'User '; // Set username to firstName or default to 'User '
         } else {
           console.error("No such user document!");
-          this.username = 'User'; // Fallback username
+          this.username = 'User '; // Fallback username
         }
       } else {
         console.error("No authenticated user found!");
-        this.username = 'User'; // Fallback if no user is authenticated
+        this.username = 'User '; // Fallback if no user is authenticated
       }
     },
 
@@ -157,7 +157,7 @@ export default {
     async sendMessage() {
       if (this.newMessage.trim()) {
         const messageData = {
-          user: this.username, // Ensure user is included
+          user: this.username, // Use the fetched username
           message: this.newMessage,
           timestamp: Date.now() // Add timestamp for ordering
         };
@@ -183,26 +183,6 @@ export default {
       }
     },
 
-    async updateMessageInFirestore(messageId, newMessage) {
-      const messageDoc = doc(db, 'chatMessages', messageId); // Reference to the specific chat message document
-      try {
-        // Ensure the document exists before updating
-        const messageSnapshot = await getDoc(messageDoc);
-        if (messageSnapshot.exists()) {
-          // If the document exists, update it with the new message content
-          await updateDoc(messageDoc, {
-            message: newMessage,  // Field you want to update
-            updatedAt: Date.now()  // Add a timestamp for the update
-          });
-          console.log("Message updated successfully!");
-        } else {
-          console.error("Message document not found!");
-        }
-      } catch (error) {
-        console.error("Error updating message:", error);
-      }
-    },
-
     updateNomineeData(updatedNominees) {
       // Ensure nominees are updated and log for debugging
       console.log('Updating nominees:', updatedNominees);
@@ -225,7 +205,7 @@ export default {
       const auth = getAuth();
       try {
         await signOut(auth); // Log the user out
-        console.log('User logged out successfully');
+        console.log('User  logged out successfully');
         this.$router.push('/'); // Redirect to the login page (adjust path as necessary)
       } catch (error) {
         console.error("Error logging out:", error);
