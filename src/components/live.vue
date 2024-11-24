@@ -221,7 +221,7 @@ export default {
       try {
         await signOut(auth); // Log the user out
         console.log('User logged out successfully');
-        this.$router.push('/login'); // Redirect to the login page (adjust path as necessary)
+        this.$router.push('/'); // Redirect to the login page (adjust path as necessary)
       } catch (error) {
         console.error("Error logging out:", error);
       }

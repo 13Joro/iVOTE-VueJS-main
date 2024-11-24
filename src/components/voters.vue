@@ -103,6 +103,12 @@ export default {
   },
   methods: {
     async submitVote() {
+      // Check if the user has already voted
+      if (localStorage.getItem('hasVoted')) {
+        alert("Your vote has already been submitted and you cannot vote again.");
+        return;
+      }
+
       if (!this.selectedNominee) {
         alert("Please select a nominee to vote for.");
         return;
@@ -123,7 +129,8 @@ export default {
         this.socket3000.emit('voteCast', voteData);
         this.socket3001.emit('voteCast', voteData);
 
-        // Disable the vote button after submission
+        // Mark the user as having voted
+        localStorage.setItem('hasVoted', 'true');
         this.voted = true;
 
         alert("Your vote has been submitted successfully!");
@@ -135,8 +142,8 @@ export default {
     async logout() {
       try {
         await signOut(auth);  // Sign out the user
-        console.log("User logged out successfully");
-        this.$router.push("/login");  // Redirect to homepage or login page
+        console.log("User  logged out successfully");
+        this.$router.push("/");  // Redirect to homepage or login page
       } catch (error) {
         console.error("Error logging out:", error);
         alert("Error logging out. Please try again.");
