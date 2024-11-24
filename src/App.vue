@@ -72,7 +72,7 @@ export default {
         } else {
           this.isAuthenticated = false;
           // Redirect to login page if not authenticated
-          this.$router.push('/login');
+          this.$router.push('/');
         }
       });
     }

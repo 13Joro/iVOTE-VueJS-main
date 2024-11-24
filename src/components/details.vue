@@ -4,7 +4,7 @@
       <nav>
         <div class="nav-left">
           <ul>
-            <li><a href="/" style="color: #2D3038; text-decoration: none; font-family: agrandir;" class="homeBtn">iVOTE</a></li>
+            <li><a href="/landing" style="color: #2D3038; text-decoration: none; font-family: agrandir;" class="homeBtn">iVOTE</a></li>
           </ul>
         </div>
         <div class="nav-right">
@@ -84,7 +84,8 @@ export default {
     // Logout method
     logout() {
       auth.signOut().then(() => {
-        this.$router.push('/login'); // Redirect to the login page after logout
+        localStorage.removeItem('account');
+        this.$router.push('/'); // Redirect to the login page after logout
       }).catch(error => {
         console.error('Logout error: ', error);
       });

@@ -3,7 +3,7 @@
     <!-- Navbar -->
     <header>
       <div class="navbar">
-        <RouterLink to="/" class="btn">iVOTE</RouterLink>
+        <RouterLink to="/landing" class="btn">iVOTE</RouterLink>
         <nav>
           <ul>
             <li><RouterLink to="/about" class="btn">About</RouterLink></li>
@@ -77,7 +77,8 @@ export default {
       const auth = getAuth();
       signOut(auth)
         .then(() => {
-          this.$router.push("/login");
+          localStorage.removeItem('account');
+          this.$router.push("/");
           console.log("User signed out.");
         })
         .catch((error) => {

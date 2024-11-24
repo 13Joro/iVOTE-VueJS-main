@@ -4,7 +4,7 @@
       <nav>
         <div class="nav-left">
           <ul>
-            <li><a href="/" style="color: #2D3038; text-decoration: none; font-family: agrandir;" class="homeBtn">iVOTE</a></li>
+            <li><a href="/landing" style="color: #2D3038; text-decoration: none; font-family: agrandir;" class="homeBtn">iVOTE</a></li>
           </ul>
         </div>
         <div class="nav-right">
@@ -45,17 +45,12 @@ export default {
       this.$router.push('/voters');
     },
     logout() {
-      // Logic for logging out can be added here (e.g., clearing authentication state)
-      // Then redirect to login page
-      this.$router.push('/login');
+      localStorage.removeItem('account');
+      this.$router.push('/');
     }
   }
 }
 </script>
-
-<style scoped>
-/* Your existing styles */
-</style>
 
 
 <style scoped>

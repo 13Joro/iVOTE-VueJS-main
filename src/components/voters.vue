@@ -3,7 +3,7 @@
     <!-- Navbar -->
     <header>
       <div class="navbar">
-        <RouterLink to="/" class="btn">iVOTE</RouterLink>
+        <RouterLink to="/landing" class="btn">iVOTE</RouterLink>
         <nav>
           <ul>
             <li><RouterLink to="/about" class="btn">About</RouterLink></li>

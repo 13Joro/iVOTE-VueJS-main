@@ -3,12 +3,12 @@
     <!-- Navbar -->
     <header>
       <div class="navbar">
-        <RouterLink to="/" class="btn">iVOTE</RouterLink>
+        <RouterLink to="/landing" class="btn">iVOTE</RouterLink>
         <nav>
           <ul>
             <li><RouterLink to="/about" class="btn">About</RouterLink></li>
             <li><RouterLink to="/contact" class="btn">Contact</RouterLink></li>
-            <li><button class="btn logout" @click="logout">Logout</button></li> <!-- Logout button -->
+            <li><a class="btn logout" @click="logout">Logout</a></li> <!-- Logout button -->
           </ul>
         </nav>
       </div>

@@ -3,7 +3,7 @@
     <!-- Navbar -->
     <header>
       <div class="navbar">
-        <RouterLink to="/" class="btn">iVOTE</RouterLink>
+        <RouterLink to="/landing" class="btn">iVOTE</RouterLink>
         <nav>
           <ul>
             <li><RouterLink to="/about" class="btn">About</RouterLink></li>
@@ -48,7 +48,8 @@ export default {
   name: "AboutPage",
   methods: {
     logout() {
-      this.$router.push("/login"); // Redirects to the login page
+      localStorage.removeItem('account');
+      this.$router.push("/"); // Redirects to the login page
     },
   },
 };

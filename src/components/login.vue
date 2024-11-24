@@ -59,7 +59,7 @@ export default {
           console.log('User logged in:', userCredential.user);
 
           // Redirect to the home page after successful login
-          this.$router.push('/'); // Ensure you have the route to home.vue set up
+          this.$router.push('/landing'); // Ensure you have the route to home.vue set up
 
         } catch (error) {
           console.error('Login failed:', error);
