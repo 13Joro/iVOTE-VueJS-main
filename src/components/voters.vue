@@ -321,6 +321,7 @@ footer {
 
 .message-button:hover {
   background-color: #161616;
+  transform: scale(1.1);
 }
 
 .message-icon {

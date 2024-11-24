@@ -37,6 +37,11 @@
         <button @click="sendMessage" class="send-btn">Send</button>
       </section>
     </main>
+
+<!-- Logo Navigator -->
+<RouterLink to="/voters" class="logo-link">
+      <img src="@/assets/logo.png" alt="Logo" class="logo" />
+    </RouterLink>
   </div>
 </template>
 
@@ -434,5 +439,27 @@ button:hover {
   background-color: #3a8b3c;
 }
 
+.logo-link {
+  position: fixed; /* Fixed positioning */
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.logo {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+  border: 4px solid black;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
 
 </style>
