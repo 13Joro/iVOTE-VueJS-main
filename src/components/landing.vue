@@ -188,4 +188,75 @@ button {
   color: white;
   box-shadow: 0;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .nav-right {
+    flex-direction: row;
+    margin-top: 9px;
+
+  }
+
+  .content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .left-panel {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .left-panel h2 {
+    font-size: 22px;
+  }
+
+  .left-panel p {
+    font-size: 16px;
+  }
+
+  .left-panel .btn {
+    padding: 8px 16px;
+  }
+
+  .right-panel {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-left ul li a {
+    font-size: 18px;
+  }
+
+  .nav-right ul li a {
+    font-size: 18px;
+
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .left-panel h2 {
+    font-size: 15px;
+  }
+
+  .left-panel p {
+    font-size: 10px;
+  }
+
+  .left-panel .btn {
+    padding: 6px 12px;
+  }
+
+  .right-panel .logo {
+    max-width: 100%;
+  }
+}
 </style>

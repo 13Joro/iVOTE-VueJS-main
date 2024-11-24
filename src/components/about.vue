@@ -85,6 +85,7 @@ body {
 .navbar nav ul {
   list-style-type: none;
   display: flex;
+  flex-direction: row;
 }
 
 .navbar nav ul li {
@@ -170,5 +171,61 @@ footer {
 
 footer p {
   font-size: 12px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .about-content {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .about-image {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .about-content h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .about-content p {
+    font-size: 16px;
+  }
+
+  .navbar nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar nav ul li {
+    margin-right: auto;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    font-size: 18px;
+  }
+
+  .about-content h2 {
+    font-size: 24px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+  }
+
+  footer p {
+    font-size: 10px;
+  }
 }
 </style>

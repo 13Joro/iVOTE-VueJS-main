@@ -462,4 +462,63 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row; /* Stack navbar items vertically */
+    font-size: 15px;
+  }
+
+  .navbar nav ul {
+    flex-direction: row; /* Stack nav items vertically */
+    gap: 5px;
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .navbar nav ul li {
+    margin-left: auto; /* Adjust margin for vertical layout */
+  }
+
+  .nominee {
+    flex: 1 1 100%; /* Full width on smaller screens */
+  }
+
+  .live-chat {
+    padding: 15px; /* Adjust padding */
+  }
+
+  .chat-box {
+    height: 200px; /* Reduce height for smaller screens */
+  }
+
+  input[type="text"] {
+    width: calc(100% - 20px); /* Adjust width */
+  }
+
+  button {
+    width: 100%; /* Full width for buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px; /* Smaller font size for headings */
+  }
+
+  .btn {
+    font-size: 15px; /* Smaller button font size */
+  }
+
+  .nominee h2 {
+    font-size: 18px; /* Smaller font size for nominee names */
+  }
+
+  .nominee p {
+    font-size: 14px; /* Smaller font size for nominee scores */
+  }
+
+  .live-chat h2 {
+    font-size: 20px; /* Smaller font size for chat heading */
+  }
+}
 </style>
