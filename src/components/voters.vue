@@ -296,14 +296,9 @@ body,
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  color: #333;
-  font-size: 14px;
-}
-
-footer p {
-  margin: 0;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #555;
 }
 
 .message-button {

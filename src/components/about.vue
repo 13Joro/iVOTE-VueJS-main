@@ -169,7 +169,6 @@ footer {
 }
 
 footer p {
-  margin-top: 20vh;
   font-size: 12px;
 }
 </style>
